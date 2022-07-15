@@ -13,7 +13,7 @@ module.exports = {
       xl: '1536px',
     },
     fontFamily: {
-      sans: ['Arial', 'sans-serif'],
+      sans: ['Montserrat', 'Arial', 'sans-serif'],
       serif: ['Garamond', 'serif'],
     },
     extend: {

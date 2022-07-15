@@ -6,13 +6,13 @@ import { IApiSearchResponseData } from './api/search';
 import { NextPageWithLayout } from './page';
 
 export interface IResults {
-  searchResults: ISearchData[];
+  galleryResults: ISearchData[];
 }
 
 export const getServerSideProps: GetServerSideProps<IResults> = async ({
   query,
 }) => {
-  let searchResults: IApiSearchResponseData = [];
+  let galleryResults: IApiSearchResponseData = [];
   const searchTerm = query.search;
   if (searchTerm && searchTerm.length > 0) {
     const response = await fetch('http://localhost:3000/api/search', {
@@ -23,25 +23,25 @@ export const getServerSideProps: GetServerSideProps<IResults> = async ({
       body: JSON.stringify({ searchTerm }),
     });
 
-    searchResults = await response.json();
+    galleryResults = await response.json();
   }
 
   return {
     props: {
-      searchResults,
+      galleryResults,
     },
   };
 };
 
-const Results: NextPageWithLayout<IResults> = ({ searchResults }) => {
-  const hasResults = searchResults.length > 0;
+const Galleries: NextPageWithLayout<IResults> = ({ galleryResults }) => {
+  const hasResults = galleryResults.length > 0;
 
   return (
     <>
       <section className="flex flex-col items-center gap-y-5">
         {hasResults ? (
           <div className={`flex flex-col space-y-8`}>
-            {searchResults.map((result, idx) => {
+            {galleryResults.map((result, idx) => {
               return <SearchResult key={idx} {...result} />;
             })}
           </div>
@@ -53,8 +53,8 @@ const Results: NextPageWithLayout<IResults> = ({ searchResults }) => {
   );
 };
 
-export default Results;
+export default Galleries;
 
-Results.getLayout = (page) => {
-  return <PrimaryLayout justify="items-start">{page}</PrimaryLayout>;
+Galleries.getLayout = (page) => {
+  return <PrimaryLayout>{page}</PrimaryLayout>;
 };

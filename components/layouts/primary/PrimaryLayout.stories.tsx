@@ -20,11 +20,3 @@ export const Base = Template.bind({});
 Base.args = {
   ...mockPrimaryLayoutProps.base,
 } as IPrimaryLayout;
-
-export const LeftAligned = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-
-LeftAligned.args = {
-  ...mockPrimaryLayoutProps.base,
-  justify: 'items-start',
-} as IPrimaryLayout;

@@ -1,10 +1,11 @@
+import AuthButton from '../components/buttons/auth/AuthButton';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import { NextPageWithLayout } from './page';
 
-const About: NextPageWithLayout = () => {
+const Login: NextPageWithLayout = () => {
   return (
     <section>
-      <h1>About</h1>
+      <h1>Login</h1>
       <p>
         Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc
         Lorem ipsum dipsunm etc
@@ -18,12 +19,13 @@ const About: NextPageWithLayout = () => {
         Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc
         Lorem ipsum dipsunm etc
       </p>
+      <AuthButton />
     </section>
   );
 };
 
-export default About;
+export default Login;
 
-About.getLayout = (page) => {
+Login.getLayout = (page) => {
   return <PrimaryLayout>{page}</PrimaryLayout>;
 };
