@@ -6,4 +6,272 @@
   .btn-primary {
     @apply border-0 p-2 px-6 bg-slate-100 rounded-md hover:bg-slate-200;
   }
+  .container {
+    @apply px-4 mx-auto max-w-8/10 border border-red-700;
+  }
 }
+
+/* .container {
+  max-width: 80%;
+  @include bp(m-up) {
+    max-width: 70%;
+  }
+}
+
+.mp-pushed .container {
+  margin-left: 20px;
+} */
+
+/* 
+.header {
+  background-color: $black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  font-size: 15px;
+  height: $headerHeight;
+  margin-bottom: 40px;
+}
+
+.header .container {
+  height: $headerHeight;
+  padding-left: 0;
+}
+
+.header__toggle {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 30px;
+  @include bp(m-up) {
+    left: 20px;
+  }
+}
+
+.header__toggle a i {
+  color: $white;
+  font-size: 25px;
+}
+
+.header__open {
+  display: block;
+}
+
+.header__close {
+  display: none;
+}
+
+.menu-open .header__open {
+  display: none;
+}
+
+.menu-open .header__close {
+  display: block;
+}
+
+.header__user {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 30px;
+  @include bp(m-up) {
+    display: block;
+  }
+}
+
+.header__user i {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.header__user i.fa-user-cog {
+  font-size: 25px;
+}
+
+.header__user-dropdown {
+  display: none;
+  position: absolute;
+  padding-top: 10px;
+  top: calc(#{$headerHeight} - 15px);
+  right: -5px;
+  width: 100px;
+  height: 115px;
+  background: black;
+  color: white;
+}
+
+.is-active .header__user-dropdown {
+  display: block;
+}
+
+.header__user-dropdown .pointer {
+  position: absolute;
+  display: block;
+  top: -10px;
+  right: 10px;
+
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid black;
+}
+
+.header__user-dropdown li {
+  width: 100%;
+}
+
+.header__user-dropdown li a {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  color: #ffffff;
+}
+
+
+
+
+} */
+
+/* 
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: none;
+  @include bp(m-up) {
+    display: block;
+    position: static;
+    border: 0;
+  }
+}
+
+.menu.is-active {
+  z-index: 1;
+  display: block;
+}
+
+.menu__list {
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  text-align: center;
+  display: none;
+  width: 100%;
+  @include bp(m-up) {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-line-pack: center;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 105%;
+  }
+}
+
+.menu.is-active .menu__list {
+  display: block;
+  background: $white;
+  padding: 0;
+
+  @include bp(m-up) {
+    background: transparent;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.menu li {
+  // padding: 10px 20px;
+  // padding: 15px;
+  margin-bottom: 0px;
+  // background: #ececec;
+  background: #34495e;
+  border-bottom: dashed 1px black;
+  @include bp(m-up) {
+    background: transparent;
+    border-bottom: none;
+    margin-bottom: 0px;
+  }
+}
+
+.menu__list li:last-child {
+  margin-top: 0px;
+  @include bp(m-up) {
+    margin-top: 0;
+  }
+}
+
+.menu a {
+  padding: 15px;
+  color: $white;
+  text-decoration: none;
+  font-family: 'Montserrat', Arial;
+  &:hover {
+    color: blanchedalmond;
+  }
+}
+
+.menu.is-active a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.menu a.is-active {
+  border-bottom: 2px solid $blue;
+}
+
+.menu li i {
+  font-size: calc(#{$headerHeight} / 2);
+  color: #ffffff;
+}
+
+.menu__list.admin li:last-child a {
+  @include bp(m-up) {
+    color: blanchedalmond;
+  }
+}
+
+.menu__list li:first-child {
+  display: none;
+  @include bp(m-up) {
+    display: block;
+  }
+}
+
+.menu__list li.menu__list-user {
+  display: block;
+  background: #223345;
+  @include bp(m-up) {
+    display: none !important;
+  }
+}
+
+.menu__list-logo {
+  display: inline-block;
+  padding-right: 60px;
+}
+
+.menu__list-logo span {
+  display: none;
+  padding: 20px;
+  color: white;
+} */

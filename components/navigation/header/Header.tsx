@@ -1,69 +1,70 @@
 import { BeakerIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import { anonymousUserLinks } from '../../../lib/menu/links';
+import BurgerMenu from '../menu/burger/BurgerMenu';
 import MainMenu from '../menu/main/MainMenu';
 
 export interface IHeader extends React.ComponentPropsWithoutRef<'header'> {}
 
 const Header: React.FC<IHeader> = ({ ...headerProps }) => {
   return (
-    <header
-      {...headerProps}
-      className="w-full flex flex-row justify-start items-center bg-black text-white p-4"
-    >
-      <BeakerIcon className="h-5 w-5 text-white" />
-      <Image src="/bokeh2.gif" alt="logo" width={127} height={48} priority />
-      <MainMenu links={anonymousUserLinks} />
-
-      {/* 
-
-         <li class="menu__list-user" [hidden]="!isLoggedIn">
-           <a href="#">User Profile</a>
-         </li>
-         <li class="menu__list-user" [hidden]="!isLoggedIn">
-           <a href="#">Change Language</a>
-         </li>
-         <li class="menu__list-user" [hidden]="!isLoggedIn">
-           <a href="#" (click)="logout($event)">Logout</a>
-         </li>
-         <li [hidden]="!isAdminRole">
-           <a [routerLink]="['/admin']" (click)="switchAdminView()"
-             >[ Admin Panel ]</a
-           >
-         </li>
-       </ul>
-
-       <ul
-         class="menu__list"
-         [ngClass]="{ admin: isAdminRole }"
-         [hidden]="!isAdminView || !isAdminRole"
-       >
-         <li><i class="fas fa-kiwi-bird"></i></li>
-         <li><a [routerLink]="['/admin']">Home</a></li>
-         <li><a [routerLink]="['/admin', 'photos']">Photos</a></li>
-         <li><a [routerLink]="['/admin', 'gallery']">Galleries</a></li>
-         <li><a [routerLink]="['/admin', 'users']">Users</a></li>
-         <li class="menu__list-user" [hidden]="!isLoggedIn">
-           <a href="#">User Profile</a>
-         </li>
-         <li class="menu__list-user" [hidden]="!isLoggedIn">
-           <a href="#">Change Language</a>
-         </li>
-         <li class="menu__list-user" [hidden]="!isLoggedIn">
-           <a href="#" (click)="logout($event)">Logout</a>
-         </li>
-         <li>
-           <a routerLink="['/']" (click)="switchAdminView()"
-             >[ Return to site ]</a
-           >
-         </li>
-       </ul>
-     </nav> */}
+    <header {...headerProps} className="w-full bg-black h-20">
+      <div className="container flex justify-start items-center h-20 gap-10">
+        <BeakerIcon className="h-5 w-5 text-white absolute left-10" />
+        <Image src="/bokeh2.gif" alt="logo" width={127} height={48} priority />
+        <MainMenu links={anonymousUserLinks} />
+        <BurgerMenu />
+      </div>
     </header>
   );
 };
 
 export default Header;
+
+// {/*
+
+//        <li class="menu__list-user" [hidden]="!isLoggedIn">
+//          <a href="#">User Profile</a>
+//        </li>
+//        <li class="menu__list-user" [hidden]="!isLoggedIn">
+//          <a href="#">Change Language</a>
+//        </li>
+//        <li class="menu__list-user" [hidden]="!isLoggedIn">
+//          <a href="#" (click)="logout($event)">Logout</a>
+//        </li>
+//        <li [hidden]="!isAdminRole">
+//          <a [routerLink]="['/admin']" (click)="switchAdminView()"
+//            >[ Admin Panel ]</a
+//          >
+//        </li>
+//      </ul>
+
+//      <ul
+//        class="menu__list"
+//        [ngClass]="{ admin: isAdminRole }"
+//        [hidden]="!isAdminView || !isAdminRole"
+//      >
+//        <li><i class="fas fa-kiwi-bird"></i></li>
+//        <li><a [routerLink]="['/admin']">Home</a></li>
+//        <li><a [routerLink]="['/admin', 'photos']">Photos</a></li>
+//        <li><a [routerLink]="['/admin', 'gallery']">Galleries</a></li>
+//        <li><a [routerLink]="['/admin', 'users']">Users</a></li>
+//        <li class="menu__list-user" [hidden]="!isLoggedIn">
+//          <a href="#">User Profile</a>
+//        </li>
+//        <li class="menu__list-user" [hidden]="!isLoggedIn">
+//          <a href="#">Change Language</a>
+//        </li>
+//        <li class="menu__list-user" [hidden]="!isLoggedIn">
+//          <a href="#" (click)="logout($event)">Logout</a>
+//        </li>
+//        <li>
+//          <a routerLink="['/']" (click)="switchAdminView()"
+//            >[ Return to site ]</a
+//          >
+//        </li>
+//      </ul>
+//    </nav> */}
 
 // <header class="header" [ngClass]="{ loggedin: isLoggedIn }">
 //   <div class="container">
@@ -140,23 +141,6 @@ export default Header;
 //         </li>
 //       </ul>
 //     </nav>
-
-//     <button
-//       class="header__menu-toggle js-nav-toggle"
-//       type="button"
-//       aria-label="Menu"
-//       aria-controls="navigation"
-//       (click)="burgerClick($event)"
-//     >
-//       <span
-//         class="burger js-burger"
-//         [ngClass]="{ 'is-active': isBurgerActive }"
-//       >
-//         <span class="burger__inner">
-//           <span class="burger__filling"></span>
-//         </span>
-//       </span>
-//     </button>
 
 //     <div
 //       class="header__user"

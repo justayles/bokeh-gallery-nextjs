@@ -1,5 +1,6 @@
 import * as NextImage from 'next/image';
 import { AuthProvider } from '../context/auth/AuthContext';
+import { MenuProvider } from '../context/menu/MenuContext';
 import '../pages/globals.css';
 
 const BREAKPOINTS_INT = {
@@ -36,9 +37,11 @@ Object.defineProperty(NextImage, 'default', {
 
 export const decorators = [
   (Story) => (
-    <AuthProvider>
-      <Story />
-    </AuthProvider>
+    <MenuProvider>
+      <AuthProvider>
+        <Story />
+      </AuthProvider>
+    </MenuProvider>
   ),
 ];
 

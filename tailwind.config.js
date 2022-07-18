@@ -17,6 +17,10 @@ module.exports = {
       serif: ['Garamond', 'serif'],
     },
     extend: {
+      maxWidth: {
+        '8/10': '80%',
+        '2/10': '20%',
+      },
       colors: {
         blue: {
           500: '#1a73e8',
