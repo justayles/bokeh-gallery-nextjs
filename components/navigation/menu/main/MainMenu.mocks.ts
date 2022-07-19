@@ -1,4 +1,4 @@
-import { anonymousUserLinks } from '../../../../lib/menu/links';
+import { anonymousUserLinks } from 'lib/menu/links';
 import { MainMenuProps } from './MainMenu';
 
 const base: MainMenuProps = { links: anonymousUserLinks };

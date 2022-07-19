@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -13,11 +15,12 @@ module.exports = {
       xl: '1536px',
     },
     fontFamily: {
-      sans: ['Montserrat', 'Arial', 'sans-serif'],
+      sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
       serif: ['Garamond', 'serif'],
     },
     extend: {
       maxWidth: {
+        '7/10': '70%',
         '8/10': '80%',
         '2/10': '20%',
       },

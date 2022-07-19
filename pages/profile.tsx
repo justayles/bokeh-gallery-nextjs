@@ -1,11 +1,10 @@
-import AuthButton from 'components/buttons/auth/AuthButton';
-import PrimaryLayout from 'components/layouts/primary/PrimaryLayout';
+import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import { NextPageWithLayout } from './page';
 
-const Login: NextPageWithLayout = () => {
+const Profile: NextPageWithLayout = () => {
   return (
     <section>
-      <h1 className="h1">Hello lets log you in !</h1>
+      <h1 className="h1">YO, is my Profile -eee-ooh</h1>
       <p className="para">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas,
         explicabo quaerat voluptas corporis quidem tenetur voluptate numquam,
@@ -19,13 +18,12 @@ const Login: NextPageWithLayout = () => {
         facilis nulla obcaecati commodi fuga ratione consequuntur iure quas
         laboriosam ducimus dolorum consequatur tempore! Libero.
       </p>
-      <AuthButton className="mt-4" />
     </section>
   );
 };
 
-export default Login;
+export default Profile;
 
-Login.getLayout = (page) => {
+Profile.getLayout = (page) => {
   return <PrimaryLayout>{page}</PrimaryLayout>;
 };

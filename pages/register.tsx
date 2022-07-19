@@ -4,19 +4,19 @@ import { NextPageWithLayout } from './page';
 const Register: NextPageWithLayout = () => {
   return (
     <section>
-      <h1>Register</h1>
-      <p>
-        Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc
-        Lorem ipsum dipsunm etc
+      <h1 className="h1">Hello lets REGISTER !</h1>
+      <p className="para">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas,
+        explicabo quaerat voluptas corporis quidem tenetur voluptate numquam,
+        beatae amet doloribus facere quisquam iusto odio fuga! Recusandae
+        delectus distinctio ratione natus.
       </p>
-      <h3>Try it out</h3>
-      <p>
-        Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc
-        Lorem ipsum dipsunm etc
-      </p>
-      <p>
-        Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc Lorem ipsum dipsunm etc
-        Lorem ipsum dipsunm etc
+      <h2 className="h2">Sub Headline</h2>
+      <p className="para">
+        Impedit reprehenderit quis enim, perferendis nesciunt iusto.
+        Reprehenderit, fugiat excepturi? Placeat suscipit quaerat, error, nam
+        facilis nulla obcaecati commodi fuga ratione consequuntur iure quas
+        laboriosam ducimus dolorum consequatur tempore! Libero.
       </p>
     </section>
   );

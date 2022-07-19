@@ -1,5 +1,5 @@
 import * as NextImage from 'next/image';
-import { AuthProvider } from '../context/auth/AuthContext';
+// import { AuthProvider } from '../context/auth/AuthContext';
 import { MenuProvider } from '../context/menu/MenuContext';
 import '../pages/globals.css';
 
@@ -13,7 +13,6 @@ const BREAKPOINTS_INT = {
 
 const customViewports = Object.fromEntries(
   Object.entries(BREAKPOINTS_INT).map(([key, val], idx) => {
-    console.log(val);
     return [
       key,
       {
@@ -38,14 +37,15 @@ Object.defineProperty(NextImage, 'default', {
 export const decorators = [
   (Story) => (
     <MenuProvider>
-      <AuthProvider>
-        <Story />
-      </AuthProvider>
+      {/* <AuthProvider> */}
+      <Story />
+      {/* </AuthProvider> */}
     </MenuProvider>
   ),
 ];
 
 export const parameters = {
+  layout: 'fullscreen',
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {

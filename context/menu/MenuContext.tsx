@@ -1,13 +1,21 @@
 import { createContext, ReactNode, useState } from 'react';
 
 interface IMenuContext {
-  burgerOpen: boolean;
-  toggleBurger: () => void;
+  burgerMenuOpen: boolean;
+  toggleBurgerMenu: () => void;
+  userMenuOpen: boolean;
+  toggleUserMenu: () => void;
+  galleryMenuOpen: boolean;
+  toggleGalleryMenu: () => void;
 }
 
 const defaultValue: IMenuContext = {
-  burgerOpen: false,
-  toggleBurger: () => undefined,
+  burgerMenuOpen: false,
+  toggleBurgerMenu: () => undefined,
+  userMenuOpen: false,
+  toggleUserMenu: () => undefined,
+  galleryMenuOpen: false,
+  toggleGalleryMenu: () => undefined,
 };
 
 const MenuContext = createContext<IMenuContext>(defaultValue);
@@ -15,11 +23,28 @@ const MenuContext = createContext<IMenuContext>(defaultValue);
 export const MenuProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [burgerOpen, setBurgerOpen] = useState(defaultValue.burgerOpen);
-  const toggleBurger = () => setBurgerOpen(!burgerOpen);
+  const [burgerMenuOpen, setBurgerMenuOpen] = useState(
+    defaultValue.burgerMenuOpen
+  );
+  const toggleBurgerMenu = () => setBurgerMenuOpen(!burgerMenuOpen);
+  const [userMenuOpen, setUserMenuOpen] = useState(defaultValue.userMenuOpen);
+  const toggleUserMenu = () => setUserMenuOpen(!userMenuOpen);
+  const [galleryMenuOpen, setGalleryMenuOpen] = useState(
+    defaultValue.galleryMenuOpen
+  );
+  const toggleGalleryMenu = () => setGalleryMenuOpen(!galleryMenuOpen);
 
   return (
-    <MenuContext.Provider value={{ burgerOpen, toggleBurger }}>
+    <MenuContext.Provider
+      value={{
+        burgerMenuOpen,
+        toggleBurgerMenu,
+        userMenuOpen,
+        toggleUserMenu,
+        galleryMenuOpen,
+        toggleGalleryMenu,
+      }}
+    >
       {children}
     </MenuContext.Provider>
   );

@@ -1,4 +1,4 @@
-import { IMainMenuItem } from '../../components/navigation/menu/main/MainMenu';
+import { IMainMenuItem } from 'components/navigation/menu/main/MainMenu';
 
 export const anonymousUserLinks: IMainMenuItem[] = [
   { label: 'Home', url: '/' },
@@ -18,4 +18,10 @@ export const adminUserLinks: IMainMenuItem[] = [
   { label: 'Home', url: '/admin' },
   { label: 'Galleries', url: '/admin/gallery/list' },
   { label: 'Users', url: '/admin/user/list' },
+];
+
+export const userDropdownLinks: IMainMenuItem[] = [
+  { label: 'Profile', url: '/profile' },
+  { label: 'Change language', url: '#', action: 'language' },
+  { label: 'Logout', url: '#', action: 'logout' },
 ];

@@ -1,15 +1,21 @@
 import { createContext, ReactNode, useState } from 'react';
 
-interface IAuthContext {
+export interface IAuthContext {
   authenticated: boolean;
+  role: 'ADMIN' | 'USER';
+  setAdmin: () => void;
+  setUser: () => void;
   login: () => void;
-  logOut: () => void;
+  logout: () => void;
 }
 
-const defaultValue: IAuthContext = {
+export const defaultValue: IAuthContext = {
   authenticated: false,
+  role: 'USER',
+  setAdmin: () => undefined,
+  setUser: () => undefined,
   login: () => undefined,
-  logOut: () => undefined,
+  logout: () => undefined,
 };
 
 const AuthContext = createContext<IAuthContext>(defaultValue);
@@ -20,11 +26,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [authenticated, setAuthenticated] = useState(
     defaultValue.authenticated
   );
+  const [role, setRole] = useState(defaultValue.role);
   const login = () => setAuthenticated(true);
-  const logOut = () => setAuthenticated(false);
+  const logout = () => setAuthenticated(false);
+  const setAdmin = () => setRole('ADMIN');
+  const setUser = () => setRole('USER');
 
   return (
-    <AuthContext.Provider value={{ authenticated, login, logOut }}>
+    <AuthContext.Provider
+      value={{ authenticated, role, setAdmin, setUser, login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

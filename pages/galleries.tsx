@@ -37,19 +37,19 @@ const Galleries: NextPageWithLayout<IResults> = ({ galleryResults }) => {
   const hasResults = galleryResults.length > 0;
 
   return (
-    <>
-      <section className="flex flex-col items-center gap-y-5">
-        {hasResults ? (
-          <div className={`flex flex-col space-y-8`}>
-            {galleryResults.map((result, idx) => {
-              return <SearchResult key={idx} {...result} />;
-            })}
-          </div>
-        ) : (
-          <p>No results found.</p>
-        )}
-      </section>
-    </>
+    <section>
+      <h1 className="h1">Hello Gallery Viewer</h1>
+      <p className="para">Check out some of our offerings below...</p>
+      {hasResults ? (
+        <div className={`flex flex-col space-y-8`}>
+          {galleryResults.map((result, idx) => {
+            return <SearchResult key={idx} {...result} />;
+          })}
+        </div>
+      ) : (
+        <p className="para">No results found.</p>
+      )}
+    </section>
   );
 };
 
