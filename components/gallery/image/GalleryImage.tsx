@@ -4,13 +4,16 @@ import { FC, useState } from 'react';
 interface IGalleryImageProps {
   title: string;
   src: string;
+  onClick?: () => void;
 }
 
-const GalleryImage: FC<IGalleryImageProps> = ({ title, src }) => {
+const GalleryImage: FC<IGalleryImageProps> = ({ title, src, onClick }) => {
   const [paddingTop, setPaddingTop] = useState('0');
-
+  const imgClass = onClick
+    ? 'w-full relative inline-block cursor-pointer'
+    : 'w-full relative inline-block cursor-pointer border-4 border-white mx-auto';
   return (
-    <div className="w-full relative inline-block" style={{ paddingTop }}>
+    <div className={imgClass} style={{ paddingTop }} onClick={onClick}>
       <Image
         alt={title}
         src={src}

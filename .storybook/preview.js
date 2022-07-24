@@ -1,6 +1,6 @@
 import * as NextImage from 'next/image';
 import { MenuProvider } from '../context/menu/MenuContext';
-import '../pages/globals.css';
+import '../styles/globals.css';
 
 const BREAKPOINTS_INT = {
   xs: 375,

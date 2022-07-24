@@ -24,6 +24,9 @@ module.exports = {
         '8/10': '80%',
         '2/10': '20%',
       },
+      height: (theme) => ({
+        'screen/3/4': '75vh',
+      }),
       colors: {
         blue: {
           500: '#1a73e8',

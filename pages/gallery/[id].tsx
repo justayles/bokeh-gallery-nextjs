@@ -1,6 +1,9 @@
+import Carousel from 'components/gallery/carousel/Carousel';
 import GalleryImage from 'components/gallery/image/GalleryImage';
+import Overlay from 'components/layouts/overlay/Overlay';
 import PrimaryLayout from 'components/layouts/primary/PrimaryLayout';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useState } from 'react';
 import { IGallery, IRawPhoto } from 'types/gallery';
 import { NextPageWithLayout } from '../../types/page';
 
@@ -53,8 +56,9 @@ const Gallery: NextPageWithLayout<IGalleryProps> = ({
   galleryData,
   galleryPhotos,
 }) => {
-  console.log(galleryPhotos);
+  //console.log(galleryPhotos);
   const hasPhotos = galleryPhotos.length > 0;
+  const [carouselOpen, setCarouselOpen] = useState(false);
   return (
     <section>
       <h1 className="h1">{galleryData.title}</h1>
@@ -62,11 +66,12 @@ const Gallery: NextPageWithLayout<IGalleryProps> = ({
       <div>
         {hasPhotos ? (
           <div className="columns-2 md:columns-3 lg:columns-5 xl:columns-6">
-            {galleryPhotos.map((photo) => (
+            {galleryPhotos.map((photo, idx) => (
               <div key={photo._id} className="mb-3">
                 <GalleryImage
                   title={photo.title}
                   src={`/uploads/${photo.thumbpath}`}
+                  onClick={() => setCarouselOpen(true)}
                 />
               </div>
             ))}
@@ -75,6 +80,9 @@ const Gallery: NextPageWithLayout<IGalleryProps> = ({
           <p className="para">No photos were found. BOO :</p>
         )}
       </div>
+      <Overlay isOpen={carouselOpen} onClose={() => setCarouselOpen(false)}>
+        <Carousel items={galleryPhotos}></Carousel>
+      </Overlay>
     </section>
   );
 };

@@ -1,14 +1,3 @@
-interface IProbeInfo {
-  width: number;
-  height: number;
-  type: string;
-  mime: string;
-  wUnits: string;
-  hUnits: string;
-  length: number;
-  url: string;
-}
-
 export interface IRawPhoto {
   exif_created: string;
   exif_make: string;
@@ -25,9 +14,7 @@ export interface IRawPhoto {
   gallery: string;
   uploaded_date: string;
   thumbpath: string;
-  __v: string;
-  thumbSize: IProbeInfo;
-  filepathSize: IProbeInfo;
+  __v: number;
 }
 
 export interface IGallery {
