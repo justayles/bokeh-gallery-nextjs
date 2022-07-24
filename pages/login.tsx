@@ -1,6 +1,6 @@
-import AuthButton from 'components/buttons/auth/AuthButton';
+import AuthButton from 'components/buttons/Button';
 import PrimaryLayout from 'components/layouts/primary/PrimaryLayout';
-import { NextPageWithLayout } from './page';
+import { NextPageWithLayout } from '../types/page';
 
 const Login: NextPageWithLayout = () => {
   return (

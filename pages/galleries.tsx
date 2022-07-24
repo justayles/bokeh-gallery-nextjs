@@ -1,50 +1,51 @@
-import { GetServerSideProps } from 'next';
+import GalleryImage from 'components/gallery/image/GalleryImage';
+import { GetStaticProps } from 'next';
+import { IGallery } from 'types/gallery';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
-import SearchResult from '../components/utility/search-result/SearchResult';
-import { ISearchData } from '../lib/search/types';
-import { IApiSearchResponseData } from './api/search';
-import { NextPageWithLayout } from './page';
+import { NextPageWithLayout } from '../types/page';
 
-export interface IResults {
-  galleryResults: ISearchData[];
+export interface IGalleryProps {
+  galleries: IGallery[];
 }
 
-export const getServerSideProps: GetServerSideProps<IResults> = async ({
-  query,
-}) => {
-  let galleryResults: IApiSearchResponseData = [];
-  const searchTerm = query.search;
-  if (searchTerm && searchTerm.length > 0) {
-    const response = await fetch('http://localhost:3000/api/search', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ searchTerm }),
-    });
+export const getStaticProps: GetStaticProps = async () => {
+  let galleries: IGallery[];
 
-    galleryResults = await response.json();
-  }
+  const galleryData = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/gallery-api/public`
+  );
+  galleries = await galleryData.json();
 
   return {
     props: {
-      galleryResults,
+      galleries,
     },
   };
 };
 
-const Galleries: NextPageWithLayout<IResults> = ({ galleryResults }) => {
-  const hasResults = galleryResults.length > 0;
-
+const Galleries: NextPageWithLayout<IGalleryProps> = ({ galleries }) => {
+  const hasResults = galleries.length > 0;
   return (
     <section>
       <h1 className="h1">Hello Gallery Viewer</h1>
-      <p className="para">Check out some of our offerings below...</p>
+      <p className="para mb-8">
+        Check out some of these curated galleries below..
+      </p>
       {hasResults ? (
-        <div className={`flex flex-col space-y-8`}>
-          {galleryResults.map((result, idx) => {
-            return <SearchResult key={idx} {...result} />;
-          })}
+        <div className="columns-2 md:columns-3 lg:columns-5 xl:columns-6">
+          {galleries.map((gallery) => (
+            <div key={gallery._id}>
+              <div className="bg-black mb-7">
+                <GalleryImage
+                  src={`/uploads/${gallery.title}_${gallery._id}/${gallery.thumbnail}`}
+                  title={gallery.title}
+                />
+                <span className="h2 p-0 m-0 pl-2 pb-2 text-white inline-block">
+                  {gallery.title}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       ) : (
         <p className="para">No results found.</p>

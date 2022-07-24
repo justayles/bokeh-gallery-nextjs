@@ -1,8 +1,10 @@
-import Header from 'components/navigation/header/Header';
+import Header from 'components/header/Header';
+import GalleryMenu from 'components/menu/gallery/GalleryMenu';
 import MenuContext from 'context/menu/MenuContext';
 import useClickOutside from 'hooks/use-click-outside';
+import useGetGalleryMenu from 'hooks/use-get-gallery-menu';
 import Head from 'next/head';
-import { useCallback, useContext, useRef } from 'react';
+import React, { useCallback, useContext, useRef } from 'react';
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {}
 
@@ -11,6 +13,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
   const { galleryMenuOpen, toggleGalleryMenu } = useContext(MenuContext);
   const toggleClass = galleryMenuOpen ? 'translate-x-80' : '';
   const containerClass = galleryMenuOpen ? 'ml-5' : '';
+  const { galleries, isLoading } = useGetGalleryMenu();
 
   const clickCallback = useCallback(() => {
     if (galleryMenuOpen) {
@@ -30,12 +33,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
         <div
           className={`absolute w-full h-full transform transition-all ${toggleClass} top-20`}
         >
-          <nav
-            className="absolute left-0 top-0 w-80 z-10 h-full transform -translate-x-80 bg-blue-800"
-            ref={sideMenuRef}
-          >
-            howdy
-          </nav>
+          <GalleryMenu links={galleries} ref={sideMenuRef} />
           <div className="h-full overflow-x-hidden overflow-y-scroll relative py-24">
             <div className="relative">
               <div className={`container ${containerClass}`}>{children}</div>

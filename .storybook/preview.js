@@ -1,5 +1,4 @@
 import * as NextImage from 'next/image';
-// import { AuthProvider } from '../context/auth/AuthContext';
 import { MenuProvider } from '../context/menu/MenuContext';
 import '../pages/globals.css';
 
@@ -28,7 +27,7 @@ const customViewports = Object.fromEntries(
 
 // Allow Storybook to handle Next's <Image> component
 const OriginalNextImage = NextImage.default;
-
+// Sort out some rubbish with NExt Image
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
   value: (props) => <OriginalNextImage {...props} unoptimized />,

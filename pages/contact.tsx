@@ -1,5 +1,5 @@
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
-import { NextPageWithLayout } from './page';
+import { NextPageWithLayout } from '../types/page';
 
 const Contact: NextPageWithLayout = () => {
   return (

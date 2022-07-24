@@ -20,6 +20,7 @@
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "next": "12.2.2",
+    "probe-image-size": "^7.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -37,6 +38,7 @@
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
     "@types/node": "^18.0.4",
+    "@types/probe-image-size": "^7.2.0",
     "@types/react": "18.0.15",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",

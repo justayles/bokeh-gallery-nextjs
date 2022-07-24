@@ -1,0 +1,15 @@
+{
+  "public": true,
+  "active": true,
+  "members": ["5fce7a3227a27f143c60bc7a"],
+  "featured": false,
+  "id": "6033f9c61abfe54439adbe8e",
+  "title": "Italy",
+  "description": "Italy through the eyes of a traveller",
+  "categoryID": "6033f9a81abfe54439adbe8d",
+  "categoryParentID": "5fce9391d8ff181d349587f6",
+  "category": "travel|Italy",
+  "creator": "5fce7a3227a27f143c60bc7a",
+  "thumbnail": "aerial-photography-of-buildings-near-sea-3560024_large.jpg",
+  "created": "2021-02-22T18:36:54.238Z"
+}
